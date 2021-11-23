@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'events#index'
 
   resources :events
-  resources :users, only: [:show, :edit, :update]
-
+  resources :users, only: %i[show edit update]
 end
