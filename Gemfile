@@ -10,6 +10,7 @@ gem 'webpacker', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'devise'
 
 
 group :development, :test do

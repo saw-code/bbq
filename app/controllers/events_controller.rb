@@ -1,5 +1,10 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  # Встроенный в девайз фильтр - посылает незалогиненного пользователя
+  before_action :authenticate_user!, except: [:show, :index]
+  # Задаем объект @event для экшена show
+  before_action :set_event, only: [:show]
+  # Задаем объект @event от текущего юзера для других действий
+  before_action :set_current_user_event, only: [:edit, :update, :destroy]
 
   # GET /events or /events.json
   def index
@@ -12,7 +17,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = current_user.events.build
   end
 
   # GET /events/1/edit
@@ -21,7 +26,7 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     respond_to do |format|
       if @event.save
@@ -57,13 +62,18 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def event_params
-      params.require(:event).permit(:title, :address, :datetime, :description)
-    end
+  def set_current_user_event
+    @event = current_user.events.find(params[:id])
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def event_params
+    params.require(:event).permit(:title, :address, :datetime, :description)
+  end
 end
