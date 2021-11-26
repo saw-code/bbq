@@ -69,3 +69,12 @@ en:
   log_in: "log in"
   remember_me: "remember me"
   sign_in: "Sign in"
+  send: "Send"
+  forgot_password: "Forgot your password?"
+  change_password: "Change password"
+  update: "Update"
+  back: "Back"
+  cancel_account: "Cancel Account"
+  controllers:
+    users:
+      updated: "Вы обновили свой профиль"
