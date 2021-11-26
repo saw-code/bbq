@@ -64,17 +64,3 @@ en:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
   app:
-    name: ""
-  sign_up: "Sign up"
-  log_in: "log in"
-  remember_me: "remember me"
-  sign_in: "Sign in"
-  send: "Send"
-  forgot_password: "Forgot your password?"
-  change_password: "Change password"
-  update: "Update"
-  back: "Back"
-  cancel_account: "Cancel Account"
-  controllers:
-    users:
-      updated: "Вы обновили свой профиль"

@@ -11,7 +11,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'devise'
-
+gem 'devise-i18n'
+gem 'rails-i18n'
 
 group :production do
   gem 'pg'

@@ -22,11 +22,11 @@
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-link active"><%= link_to 'Профиль', current_user %></li>
-          <li class="nav-link active"><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
+          <li class="nav-link"><%= link_to t("profile"), current_user %></li>
+          <li class="nav-link"><%= link_to t("sign_out"), destroy_user_session_path, :method => :delete %></li>
         <% else %>
-          <li class="nav-link active"><%= link_to 'Войти', new_user_session_path %></li>
-          <li class="nav-link active"><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+          <li class="nav-link"><%= link_to t("sign_in"), new_user_session_path %></li>
+          <li class="nav-link"><%= link_to t("sign_up"), new_user_registration_path %></li>
         <% end %>
       </ul>
     </div>
