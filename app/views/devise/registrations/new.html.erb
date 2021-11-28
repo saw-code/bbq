@@ -5,13 +5,13 @@
   <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control',
-                      placeholder: "name@example.com" %>
+                      placeholder: t('example_email') %>
   </div>
 
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, autofocus: false, autocomplete: "name", class: 'form-control',
-                     placeholder: "Name" %>
+                     placeholder: t('example_name') %>
   </div>
 
   <div class="form-group">

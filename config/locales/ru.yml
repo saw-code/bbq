@@ -182,3 +182,6 @@ ru:
   no_events: 'Пользователь пока не организовал ни одного события'
   pincode_access: 'Введите пин-код'
   event_photos: 'Фоточки с события'
+  unnamed: 'Безымянный пользователь'
+  example_name: 'Барт Симпсон'
+  example_email: 'name@example.com'

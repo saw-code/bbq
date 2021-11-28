@@ -18,6 +18,6 @@ class User < ApplicationRecord
 
   # Задаем юзеру случайное имя, если оно пустое
   def set_name
-    self.name = 'Unnamed' if name.blank?
+    self.name = I18n.t('unnamed') if name.blank?
   end
 end
