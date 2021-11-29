@@ -64,3 +64,6 @@ en:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
   app:
+  ignore: 'If you did not ask for it, please ignore this letter.'
+  password_change_hint: 'Your password will not change until you follow the link above and create a new one'
+  change_password: 'Change password'
