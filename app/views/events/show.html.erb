@@ -12,7 +12,6 @@
             <%# Для перевода времени в русский формат используем I18n %>
             <%# Формат при этом используется из гема russian %>
             <h3><%= l @event.datetime, format: :short %></h3>
-
             <h3><small><%= link_to @event.address,
                                    "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
             <p><%= @event.description %></p>
