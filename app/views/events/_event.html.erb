@@ -1,5 +1,4 @@
-<%# Паршиал для отображения инфы об отдельном событии %>
-<div class="col-sm-6 col-md-4 p-3">
+<div class="col-sm-4 col-md-6 mt-3">
   <div class="thumbnail">
 
     <%= content_tag 'div', '', class: 'event-background',
@@ -8,9 +7,19 @@
     <div class="thumbnail-inner event-info-inner">
       <div class="caption">
         <div class="event-description">
-          <h3><%= link_to event.title, event_path(event) %></h3>
-          <h3><small><%= l event.datetime, format: :long %></small></h3>
+          <h3 class="col-6"><%= link_to event.title, event_path(event) %></h3>
+          <h3>
+            <%# Для перевода времени в русский формат используем I18n %>
+            <%# Формат при этом используется из гема russian %>
+            <small><%= l event.datetime, format: :short %></small>
+          </h3>
           <div class="buffer-both"><%= event.address %></div>
+        </div>
+        <div>
+          <%# Выводим всех пользователей, которые придут на событие, выводя их аватарки %>
+          <% event.visitors.each do |user| %>
+            <%= image_tag user_avatar_thumb(user), class: 'img-icon', title: user.name %>
+          <% end %>
         </div>
       </div>
     </div>

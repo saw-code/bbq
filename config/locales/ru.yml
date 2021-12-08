@@ -50,6 +50,7 @@ ru:
       created: 'Комментарий добавлен'
       destroyed: 'Комментарий удален'
       error: 'Что то пошло не так :('
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
     subscriptions:
       created: 'Вы подписались на это событие.'
       destroyed: 'Подписчик удален.'
@@ -77,6 +78,13 @@ ru:
     few: '%{count} ошибки'
     many: '%{count} ошибок'
     other: '%{count} ошибки'
+
+  errors:
+    messages:
+      carrierwave_processing_error: "Невозможно изменить размер изображения."
+      carrierwave_integrity_error: "Это не картинка."
+      carrierwave_download_error: "Не могу загрузить картинку."
+      extension_whitelist_error: "Вы не можете загружать %{extension} файлы, разрешенные типы: %{allowed_types}"
 
   # Формат даты и времени
   time:
@@ -141,6 +149,35 @@ ru:
       - :month
       - :year
 
+  # Переводы для ActionMailer
+  event_mailer:
+    subscription:
+      subject: "Новая подписка на событие: %{title}"
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'E-mail'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Дата'
+      owner: 'Организатор'
+    comment:
+      subject: "Новый комментарий к событию: %{title}"
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Дата'
+      owner: 'Организатор'
+    photo:
+      subject: "Новое фото к событию: %{title}"
+      title: 'Новое фото'
+      author: 'Добавил'
+      event: 'Событие'
+      datetime: 'Дата'
+      owner: 'Организатор'
+
+  pundit:
+    not_authorized: "У вас нет прав для выполнения этого действия."
+
   # Перевод ссылок и кнопок
   events: 'События'
   new_event: 'Новое событие'
@@ -166,7 +203,9 @@ ru:
   send: 'Отправить'
   subscribe: 'Подписаться'
   subscribers: 'Подписались:'
-  comments: 'Комментов:'
+  comments:
+    comment:
+      destroy_confirm: ""
   photos: 'Фоток:'
   will_go: 'Пойдут:'
   back: 'Назад'
@@ -187,3 +226,5 @@ ru:
   example_email: 'name@example.com'
   ignore: "Если вы этого не запрашивали, не обращайте внимания на это письмо"
   password_change_hint: 'Ваш пароль не изменится, пока вы не перейдете по ссылке выше и не создадите новый'
+  request_link: 'Кто-то запросил ссылку для изменения вашего пароля. Сделать это можно по ссылке ниже.'
+  greetings: 'Привет'

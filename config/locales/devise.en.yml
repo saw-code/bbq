@@ -67,3 +67,13 @@ en:
   ignore: 'If you did not ask for it, please ignore this letter.'
   password_change_hint: 'Your password will not change until you follow the link above and create a new one'
   change_password: 'Change password'
+  controllers:
+    comments:
+      created: "Comment was successfully created."
+      error: "Something went wrong :("
+      destroyed: "Comment has been deleted"
+      destroy_confirm: "Confirm destroy?"
+
+  subscribe: "Subscribe"
+  request_link: "Someone requested a link to change your password. You can do this at the link below. "
+  greetings: "Hello"

@@ -13,6 +13,14 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    # Болванка модели для формы добавления комментария
+    @new_comment = @event.comments.build(params[:comment])
+
+    # Болванка модели для формы подписки
+    @new_subscription = @event.subscriptions.build(params[:subscription])
+
+    # Болванка модели для формы добавления фотографии
+    @new_photo = @event.photos.build(params[:photo])
   end
 
   # GET /events/new
@@ -28,37 +36,28 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: t("controllers.events.created") }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      # Используем сообщение из файла локалей ru.yml
+      # controllers -> events -> created
+      redirect_to @event, notice: I18n.t('controllers.events.created')
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: t("controllers.events.updated") }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.update(event_params)
+      redirect_to @event, notice: I18n.t('controllers.events.updated')
+    else
+      render :edit
     end
   end
 
   # DELETE /events/1 or /events/1.json
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: t("controllers.events.destroyed") }
-      format.json { head :no_content }
-    end
+    redirect_to events_url, notice: I18n.t('controllers.events.destroyed')
   end
 
   private
